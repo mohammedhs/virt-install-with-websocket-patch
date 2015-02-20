@@ -1,0 +1,21 @@
+--- virtinst/devicegraphics.py	2014-07-28 11:11:32.000000000 -0400
++++ virtinst/devicegraphics.py	2015-02-20 09:34:25.527201161 -0500
+@@ -108,7 +108,7 @@
+         self._local_keymap = -1
+ 
+ 
+-    _XML_PROP_ORDER = ["type", "port", "tlsPort", "autoport",
++    _XML_PROP_ORDER = ["type", "port","websocket", "tlsPort", "autoport",
+                        "keymap", "listen",
+                        "passwd", "display", "xauth"]
+ 
+@@ -163,6 +163,9 @@
+     port = XMLProperty("./@port", is_int=True,
+             set_converter=_set_port_converter,
+             default_cb=_get_default_port)
++    websocket = XMLProperty("./@websocket", is_int=True,
++            set_converter=_set_port_converter,
++            default_cb=_get_default_port)
+     tlsPort = XMLProperty("./@tlsPort", is_int=True,
+             set_converter=_set_tlsport_converter,
+             default_cb=_get_default_tlsport)
